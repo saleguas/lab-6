@@ -1,3 +1,5 @@
+# salvador aleguas
+
 def encode_str(s):
     # taking an 8 digit password
     # take each digit and move it 3 places ahead
