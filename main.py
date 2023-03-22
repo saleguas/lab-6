@@ -11,6 +11,14 @@ def encode_str(s):
         
     return encoded_str
 
+def decode(x):
+    for y in x:
+        decoded_password = int(y) - 3
+        if decoded_password < 0:
+            decoded_password = decoded_password + 10
+        decoder = decoder + str(decoded_password)
+    return decoder
+
 # make a menu to prompt the user for input
 # 1. encode a string
 # 2. decode a string
@@ -25,10 +33,12 @@ if __name__ == "__main__":
         
         if choice == "1":
             s = input("Enter a string to encode: ")
-            print("Encoded string: ", encode_str(s))
+            
+            print("Your password has been encoded and stored!")
         elif choice == "2":
-            pass
+            s = input("The encoded password is {}, and the original password is {}.")
         elif choice == "3":
             break
         else:
             print("Invalid choice")
+
