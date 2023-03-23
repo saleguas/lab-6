@@ -12,6 +12,7 @@ def encode_str(s):
     return encoded_str
 
 def decode(x):
+    decoder = ""
     for y in x:
         decoded_password = int(y) - 3
         if decoded_password < 0:
@@ -25,20 +26,25 @@ def decode(x):
 # 3. exit
 
 if __name__ == "__main__":
+    stored_password = ""
     while True:
-        print("1. encode a string")
-        print("2. decode a string")
-        print("3. exit")
-        choice = input("Enter your choice: ")
+        print("Menu")
+        print("-------------")
+        print("1. Encode")
+        print("2. Decode")
+        print("3. Quit")
+        choice = input("Please enter an option: ")
         
         if choice == "1":
-            s = input("Enter a string to encode: ")
-            
+            s = input("Please enter your password to encode: ")
+            stored_password = encode_str(s)
             print("Your password has been encoded and stored!")
         elif choice == "2":
-            s = input("The encoded password is {}, and the original password is {}.")
+            if stored_password:
+                print(f"The encoded password is {stored_password}, and the original password is {decode(stored_password)}.")
+            else:
+                print("No encoded password found.")
         elif choice == "3":
             break
         else:
             print("Invalid choice")
-
